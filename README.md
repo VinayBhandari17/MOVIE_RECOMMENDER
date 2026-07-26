@@ -1,77 +1,38 @@
-# 🧠 Personality Risk & Trait Predictor (Streamlit App)
+This idea - "PESONALITY-PREDICTOR", came randomly to my mind while i was thinking what to for ML Project.
+I asked Gemini that i want to make such a model, where can i find relevent data, KAGGLE was the answer - this repo contain 'train.csv', my training data.
+-> code.ipynb - contains my code
+      description for code:
+          The data was almost clean, i did few binary encoding.
+          1.In stage_fear column, I asigned YES = 1 and NO = 0
+          2.In 'Drained_after_socializing' column, I did same as Stage_fear column.
+          3.In 'Personality' columns, I set Extrovert to one and introvert to 0.
 
-An interactive Machine Learning web application built with **Streamlit**, **Pandas**, **XGBoost/Scikit-Learn**, and **Plotly** to assess and predict personality traits (Introvert vs. Extrovert) based on daily social habits and psychological indicators.
+          Then i split the data to train and check which model is best-fit, I found Xgboost was best.
 
----
 
-## 🌟 Features
-- **Modern UI Design**: Custom dark-mode glassmorphism styling, responsive dual-column layout, and animated badges.
-- **Interactive Inputs**: Fine-tune daily habits using sliders, radio toggles, and numeric inputs.
-- **Visual Predictions**: Real-time probability chart powered by Plotly and custom behavioral metrics (Solitude Index, Outing Energy, Social Battery).
-- **Streamlit Cloud Ready**: Easily deployable to Streamlit Community Cloud directly from GitHub.
+          Deployement part in code.ipynb:
+            Gemini suggested to use CalibratedClassifierCV as Xgboost outputs the probability which are extreme, means either close to zero or close to one.
+            
 
----
+            The joblib part is written by Gemini.
 
-## 📁 Repository Structure
+            The last cell is written to find the version of modules used which was necesaary for requirements.txt
 
-```text
-ML_Project/
-├── app.py                      # Main Streamlit web application
-├── calibrated_model.joblib     # Pre-trained ML pipeline model
-├── requirements.txt            # Python dependencies for deployment
-├── .streamlit/
-│   └── config.toml             # Streamlit visual theme configuration
-├── train.csv                   # Model training dataset
-├── code.ipynb                  # Data processing & model training notebook
-└── README.md                   # Project documentation
-```
 
----
 
-## 🚀 How to Run Locally
+->requirements.txt - contains requirements to be preloaded to run app.py
+              It contains module names with their version.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-   cd YOUR_REPOSITORY_NAME
-   ```
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-3. **Launch the Streamlit app**:
-   ```bash
-   streamlit run app.py
-   ```
+->app.py - the file which is run by hugging_face/render/etc...  so that other users can use this model
+        It contains the fronted part for the project I created. This is generated completely with help of 'Antigravity'.
 
----
 
-## 🌐 Deploying to Streamlit Community Cloud via GitHub
+->caliberated_model.joblib - It contains my trained model, along with all weights and parameters.
+     This file generated through code.ipynb
 
-Follow these simple steps to host your app online for free:
 
-### Step 1: Push your code to GitHub
-1. Initialize git and commit your files:
-   ```bash
-   git init
-   git add .
-   git commit -m "Deploy Streamlit Personality Predictor UI"
-   ```
-2. Create a new repository on [GitHub](https://github.com/new).
-3. Connect your repository and push:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-   git branch -M main
-   git push -u origin main
-   ```
 
-### Step 2: Deploy on Streamlit Cloud
-1. Go to [share.streamlit.io](https://share.streamlit.io/) and sign in with GitHub.
-2. Click **New app**.
-3. Select your GitHub repository (`YOUR_USERNAME/YOUR_REPOSITORY_NAME`), branch (`main`), and set **Main file path** to:
-   ```text
-   app.py
-   ```
-4. Click **Deploy!** 🚀
+->REAME.md - This file summarizes all other files used to create and deploy the "Personality-Predictor" model. Give model a try.
+           
