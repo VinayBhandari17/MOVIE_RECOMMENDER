@@ -13,3 +13,6 @@ Project Structure:
      requirements.txt: contains the requirements of this project
      readme.md: Contains small description about the project
      
+
+
+If you wish to use the model https://movierecommender-c2rhpnvuaxxtxo4gw4rlno.streamlit.app/
