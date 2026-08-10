@@ -1,0 +1,14 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment / local settings
+.env
+
+# Large data/embeddings (if files exceed GitHub's 100MB limit)
+# data/*.csv
+# data/*.npy
